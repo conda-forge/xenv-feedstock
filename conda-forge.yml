@@ -3,5 +3,7 @@ conda_forge_output_validation: true
 bot:
   automerge: true
   abi_migration_branches:
-    - master
-    - 0.0.4
+  - master
+  - 0.0.4
+conda_build:
+  pkg_format: '2'
