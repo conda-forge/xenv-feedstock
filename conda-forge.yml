@@ -11,3 +11,4 @@ bot:
   - 0.0.4
 conda_build:
   pkg_format: '2'
+test: native_and_emulated
