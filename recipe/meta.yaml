@@ -10,18 +10,27 @@ source:
   sha256: b762ba67e499a0c37095d9bc8c91b9ffa51169c232adcdf16fb12a810a04ae9d
 
 build:
-  number: 2
+  number: 3
   # Cannot be noarch due to 2to3
   entry_points:
     - xenv=xenv:main
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - setuptools_scm                         # [build_platform != target_platform]
+    - nose                                   # [build_platform != target_platform]
+    # Needs older setuptools to be able to use "use_2to3"
+    - setuptools <58                         # [build_platform != target_platform]
   host:
     - pip
     - python
     - setuptools_scm
     - nose
+    # Needs older setuptools to be able to use "use_2to3"
+    - setuptools <58
   run:
     - python
     - setuptools
@@ -35,7 +44,6 @@ test:
 about:
   home: https://gitlab.cern.ch/lhcb-core/xenv
   license: GPL-3.0-or-later
-  license_family: GPL
   license_file: LICENSE
   summary: Run commands in modified environment
   doc_url: https://gitlab.cern.ch/lhcb-core/xenv
