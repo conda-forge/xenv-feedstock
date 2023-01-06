@@ -22,11 +22,15 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - setuptools_scm                         # [build_platform != target_platform]
     - nose                                   # [build_platform != target_platform]
+    # Needs older setuptools to be able to use "use_2to3"
+    - setuptools <58                         # [build_platform != target_platform]
   host:
     - pip
     - python
     - setuptools_scm
     - nose
+    # Needs older setuptools to be able to use "use_2to3"
+    - setuptools <58
   run:
     - python
     - setuptools
