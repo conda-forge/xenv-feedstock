@@ -10,7 +10,7 @@ source:
   sha256: cea9547295f0bd07c87e68353bb9eb1c2f2d1c09a840e3196c19cbc807ee4558
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - xenv=xenv:main
@@ -19,14 +19,16 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - setuptools_scm
     - nose
   run:
-    - python
+    - python >={{ python_min }}
     - setuptools
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - xenv
   commands:
