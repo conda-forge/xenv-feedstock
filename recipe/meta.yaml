@@ -10,7 +10,7 @@ source:
   sha256: b762ba67e499a0c37095d9bc8c91b9ffa51169c232adcdf16fb12a810a04ae9d
 
 build:
-  number: 3
+  number: 4
   # Cannot be noarch due to 2to3
   entry_points:
     - xenv=xenv:main
