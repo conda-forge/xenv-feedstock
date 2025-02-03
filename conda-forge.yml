@@ -3,7 +3,7 @@ bot:
   automerge: true
   abi_migration_branches:
   - master
-  - 0.0.4
+  - 0.0.6
 github:
   branch_name: main
   tooling_branch_name: main
