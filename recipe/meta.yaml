@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xenv-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xenv-{{ version }}.tar.gz
   sha256: 0e83a4bc157641c4d905a1ef9d14b1c0cde7d5792615d9ba40ccb5778a84bcd6
 
 build:
@@ -14,16 +14,16 @@ build:
     - xenv = xenv:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools >=61.2
     - setuptools-scm
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -33,6 +33,7 @@ test:
     - xenv --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://gitlab.cern.ch/lhcb-core/xenv
