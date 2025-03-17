@@ -1,5 +1,5 @@
 {% set name = "xenv" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,10 +7,10 @@ package:
 
 source:
   url: "https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: cea9547295f0bd07c87e68353bb9eb1c2f2d1c09a840e3196c19cbc807ee4558
+  sha256: 31194d29624140988e3658673ae655c9101c28b64ebec4a6222980ba881f0f79
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - xenv=xenv:main
